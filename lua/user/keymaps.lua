@@ -114,3 +114,7 @@ vim.api.nvim_set_keymap(
   "<cmd>JABSOpen<cr>",
   { noremap = true, silent = true, nowait = true }
 )
+
+-- treesitter 折叠
+keymap("n", "C", ":foldclose<CR>", opts)
+keymap("n", "Z", ":foldopen<CR>", opts)
