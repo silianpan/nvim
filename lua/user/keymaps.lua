@@ -118,3 +118,11 @@ vim.api.nvim_set_keymap(
 -- treesitter 折叠
 keymap("n", "C", ":foldclose<CR>", opts)
 keymap("n", "Z", ":foldopen<CR>", opts)
+
+-- 代码注释Comment.nvim
+-- ctrl + /
+keymap("n", "<C-_>", "gbc", { noremap = false })
+keymap("v", "<C-_>", "gbc", { noremap = false })
+-- ctrl + .
+keymap("n", "<C-l>", "gcc", { noremap = false })
+keymap("v", "<C-l>", "gcc", { noremap = false })
