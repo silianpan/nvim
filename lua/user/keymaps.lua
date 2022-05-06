@@ -123,6 +123,6 @@ keymap("n", "Z", ":foldopen<CR>", opts)
 -- ctrl + /
 keymap("n", "<C-_>", "gbc", { noremap = false })
 keymap("v", "<C-_>", "gbc", { noremap = false })
--- ctrl + i
-keymap("n", "<C-i>", "gcc", { noremap = false })
-keymap("v", "<C-i>", "gcc", { noremap = false })
+-- alt + /
+keymap("n", "<A-/>", "gcc", { noremap = false })
+keymap("v", "<A-/>", "gcc", { noremap = false })
