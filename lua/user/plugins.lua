@@ -177,6 +177,9 @@ return packer.startup(function(use)
   use "romgrk/nvim-treesitter-context"
   use "mizlan/iswap.nvim"
 
+  -- https://github.com/neoclide/coc.nvim
+  use { "neoclide/coc.nvim", branch = "release" }
+
   -- Git
   use "lewis6991/gitsigns.nvim"
   use "f-person/git-blame.nvim"

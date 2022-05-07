@@ -1,0 +1,16 @@
+{
+  "codeLens.enable": true,
+  "java.referencesCodeLens.enabled": true,
+  "java.jdt.ls.vmargs": "-javaagent:/usr/local/share/lombok/lombok.jar",
+  "java.configuration.runtimes": [
+    {
+      "name": "JavaSE-8",
+      "path": "/Library/Java/JavaVirtualMachines/jdk1.8.0_333.jdk/Contents/Home",
+      "default": true
+    },
+    {
+      "name": "JavaSE-11",
+      "path": "/Users/liupan/work/tools/dev/jdk-11.0.15.1.jdk/Contents/Home"
+    }
+  ]
+}
