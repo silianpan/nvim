@@ -163,6 +163,7 @@ return packer.startup(function(use)
   use "nvim-telescope/telescope-media-files.nvim"
   use "nvim-telescope/telescope-ui-select.nvim"
   use "nvim-telescope/telescope-file-browser.nvim"
+  -- use { "nvim-telescope/telescope-fzf-native.nvim", run = 'make' }
 
   -- Treesitter
   use {
@@ -178,7 +179,7 @@ return packer.startup(function(use)
   use "mizlan/iswap.nvim"
 
   -- https://github.com/neoclide/coc.nvim
-  use { "neoclide/coc.nvim", branch = "release" }
+  -- use { "neoclide/coc.nvim", branch = "release" }
 
   -- Git
   use "lewis6991/gitsigns.nvim"
