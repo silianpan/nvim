@@ -2,7 +2,8 @@
 -- go to the above and then enter <c-v>u<unicode> and the symbold should appear
 -- or go here and upload the font file: https://mathew-kurian.github.io/CharacterMap/
 -- find more here: https://www.nerdfonts.com/cheat-sheet
--- 这里在windows下要改为0，所有都采用一套图标
+
+-- Windows Terminal：这里在windows下要改为0，所有都采用一套图标
 if vim.fn.has "mac" == 1 then
   -- elseif vim.fn.has "mac" == 1 then
   return {

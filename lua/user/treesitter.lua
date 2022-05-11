@@ -3,13 +3,16 @@ if not status_ok then
 	return
 end
 
+-- Windows Terminal
+-- require"nvim-treesitter.install".compilers = { "clang" }
+
 local ft_to_parser = require"nvim-treesitter.parsers".filetype_to_parsername
 ft_to_parser.motoko = "typescript"
 
--- require 'nvim-treesitter.install'.compilers = { "clang", "gcc" }
-
 configs.setup({
 	ensure_installed = "all", -- one of "all" or a list of languages
+	-- Windows Terminal
+	-- ensure_installed = { "bash", "c", "cpp", "cmake", "lua", "dart", "css", "go", "json", "html", "http", "java", "javascript", "json5", "julia", "kotlin", "make", "markdown", "vim", "vue", "yaml", "python", "scss", "tsx", "typescript", "php" }, -- one of "all" or a list of languages
 	sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
 	ignore_install = { "" }, -- List of parsers to ignore installing
 	highlight = {

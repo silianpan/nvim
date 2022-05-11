@@ -128,6 +128,8 @@ return packer.startup(function(use)
     end,
 
     run = "./install.sh",
+    -- Windows Terminal
+    -- run = "powershell ./install.ps1",
     requires = "hrsh7th/nvim-cmp",
   }
 
