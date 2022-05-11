@@ -6,6 +6,8 @@ end
 local ft_to_parser = require"nvim-treesitter.parsers".filetype_to_parsername
 ft_to_parser.motoko = "typescript"
 
+-- require 'nvim-treesitter.install'.compilers = { "clang", "gcc" }
+
 configs.setup({
 	ensure_installed = "all", -- one of "all" or a list of languages
 	sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
