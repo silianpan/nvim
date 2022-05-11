@@ -4,7 +4,7 @@ if not status_ok then
 end
 
 -- Windows Terminal
--- require"nvim-treesitter.install".compilers = { "clang" }
+-- require"nvim-treesitter.install".compilers = { "gcc" }
 
 local ft_to_parser = require"nvim-treesitter.parsers".filetype_to_parsername
 ft_to_parser.motoko = "typescript"
