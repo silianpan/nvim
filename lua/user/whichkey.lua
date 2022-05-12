@@ -152,6 +152,12 @@ local mappings = {
     f = { "<cmd>lua require('spectre').open_file_search()<cr>", "Replace Buffer" },
   },
 
+  -- j = {
+  --   name = "AnyJump",
+  --   a = { "<cmd>AnyJumpBack<cr>", "Any Jump Back" },
+  --   b = { "<cmd>AnyJumpLastResults", "Any Jump Last Results" },
+  -- },
+
   d = {
     name = "Debug",
     b = { "<cmd>lua require'dap'.toggle_breakpoint()<cr>", "Breakpoint" },

@@ -126,3 +126,7 @@ keymap("v", "<C-_>", "gbc", { noremap = false })
 -- alt + /
 keymap("n", "<A-/>", "gcc", { noremap = false })
 keymap("v", "<A-/>", "gcc", { noremap = false })
+
+-- 代码跳转anyjump.vim配置
+-- 禁用默认按键绑定，这里配置g无效
+-- let g:any_jump_disable_default_keybindings = 1
