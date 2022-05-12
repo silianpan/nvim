@@ -200,6 +200,8 @@ return packer.startup(function(use)
 
   -- jump不是用lua编写
   -- use "pechorin/any-jump.vim"
+  -- use "kwkarlwang/bufjump.nvim"
+
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
