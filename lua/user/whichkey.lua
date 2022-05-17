@@ -104,7 +104,7 @@ local m_mappings = {
 
 local mappings = {
   ["a"] = { "<cmd>Alpha<cr>", "Alpha" },
-  b = { "<cmd>JABSOpen<cr>", "Buffers" },
+  -- b = { "<cmd>JABSOpen<cr>", "Buffers" },
   -- ["b"] = {
   --   "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
   --   "Buffers",
@@ -127,6 +127,16 @@ local mappings = {
   ["R"] = { '<cmd>lua require("renamer").rename()<cr>', "Rename" },
   ["z"] = { "<cmd>ZenMode<cr>", "Zen" },
   ["gy"] = "Link",
+
+  b = {
+    name = "Buffers",
+    b = { "<cmd>JABSOpen<cr>", "Buffers" },
+    c = { "<cmd>Bdelete!<cr>", "Close current buffer" },
+    h = { "<cmd>BufferLineCloseLeft<cr>", "Close left tabs" },
+    l = { "<cmd>BufferLineCloseRight<cr>", "Close right tabs" },
+    o = { "<cmd>BufferLineCloseRight<cr><cmd>BufferLineCloseLeft<cr>", "Close other tabs" },
+    p = { "<cmd>BufferLinePickClose<cr>", "Close selected tabs" },
+  },
 
   p = {
     name = "Packer",
