@@ -132,6 +132,7 @@ local mappings = {
     name = "Buffers",
     b = { "<cmd>JABSOpen<cr>", "Buffers" },
     c = { "<cmd>Bdelete!<cr>", "Close current buffer" },
+    j = { "<cmd>BufferLineGroupClose ungrouped<cr>", "Close ungrouped buffer" },
     h = { "<cmd>BufferLineCloseLeft<cr>", "Close left tabs" },
     l = { "<cmd>BufferLineCloseRight<cr>", "Close right tabs" },
     o = { "<cmd>BufferLineCloseRight<cr><cmd>BufferLineCloseLeft<cr>", "Close other tabs" },
