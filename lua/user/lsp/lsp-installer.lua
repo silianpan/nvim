@@ -3,6 +3,31 @@ if not status_ok then
   return
 end
 
+-- local servers = {
+--   emmet_ls = require("user.lsp.settings.emmet_ls"), -- lua/lsp/config/lua.lua
+--   jsonls = require("user.lsp.settings.jsonls"),
+--   pyright = require("user.lsp.settings.pyright"),
+--   solang = require("user.lsp.settings.solang"),
+--   solc = require("user.lsp.settings.solc"),
+--   sumneko_lua = require("user.lsp.settings.sumneko_lua"),
+-- }
+
+-- -- 自动安装 Language Servers
+-- for name, config in pairs(servers) do
+--   local server_is_found, server = lsp_installer.get_server(name)
+--   if server_is_found then
+--     if not server:is_installed() then
+--       print("Installing " .. name)
+--       server:install()
+--     else
+--       if type(config) == "table" and config.on_init then
+--         config.on_init(server)
+--         print("onInit " .. type(config))
+--       end
+--     end
+--   end
+-- end
+
 -- TODO: add something to installer later
 -- require("lspconfig").motoko.setup {}
 
