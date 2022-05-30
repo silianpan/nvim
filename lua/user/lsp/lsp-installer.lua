@@ -55,6 +55,15 @@ lsp_installer.on_server_ready(function(server)
   end
 
   if server.name == "jdtls" then
+    -- ftplugin/java.lua已经安装，这里会出现重复安装
+    -- opts['init_options'] = {
+    --   bundles = {
+    --       vim.fn.glob(
+    --           vim.loop.os_homedir() ..
+    --               '/.config/nvim/java-debug/com.microsoft.java.debug.plugin/target/' ..
+    --               'com.microsoft.java.debug.plugin-0.36.0.jar'),
+    --   },
+    -- }
     return
   end
 

@@ -47,6 +47,7 @@ require "user.copilot"
 require "user.gps"
 require "user.illuminate"
 require "user.dap"
+-- require "user.dap-java"
 require "user.lir"
 require "user.jabs"
 -- 代码跳转
