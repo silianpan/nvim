@@ -40,6 +40,17 @@ formatter.setup({
         }
       end,
     },
+    java = {
+      function()
+        return {
+          exe = "java",
+          -- Formatter uses '-' as stdin
+          -- Windows Terminal need to change
+          args = { "-jar", "/Users/liupan/.local/share/nvim/lsp_servers/jdtls/google-java-format-1.15.0-all-deps.jar", "-" },
+          stdin = true,
+      }
+      end,
+    },
   },
 })
 
@@ -48,7 +59,7 @@ vim.api.nvim_exec(
   [[
 augroup FormatAutogroup
   autocmd!
-  autocmd BufWritePost *.js,*.rs,*.lua FormatWrite
+  autocmd BufWritePost *.js,*.rs,*.lua,*.java FormatWrite
 augroup END
 ]],
   true
