@@ -20,6 +20,7 @@ return {
     -- Initialize the LSP via rust-tools instead
     require("rust-tools").setup({
       server = vim.tbl_deep_extend("force", server:get_default_options(), opts),
+      -- 这里报错
       dap = require("dap.nvim-dap.rust"),
     })
     server:attach_buffers()

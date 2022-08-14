@@ -152,9 +152,9 @@ return packer.startup(function(use)
   -- JSON 增强
   use "b0o/SchemaStore.nvim"
   -- Lua 增强
-  -- use "folke/lua-dev.nvim"
+  use "folke/lua-dev.nvim"
   -- Rust 增强
-  -- use "simrat39/rust-tools.nvim"
+  use "simrat39/rust-tools.nvim"
   use {
     "folke/trouble.nvim",
     cmd = "TroubleToggle",
