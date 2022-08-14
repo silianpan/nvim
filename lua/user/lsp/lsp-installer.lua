@@ -103,6 +103,7 @@ local servers = {
   emmet_ls = require("user.lsp.config.emmet"),
   jsonls = require("user.lsp.config.json"),
   tsserver = require("user.lsp.config.ts"),
+  volar = require("user.lsp.config.volar"),
   -- rust_analyzer = require("user.lsp.config.rust"),
   -- remark_ls = require("user.lsp.lang.markdown"),
 }

@@ -1,5 +1,7 @@
 require "user.options"
+-- 快捷键映射
 require "user.keymaps"
+-- require("keybindings")
 require "user.plugins"
 require "user.autocommands"
 require "user.colorscheme"
