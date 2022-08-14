@@ -143,12 +143,18 @@ return packer.startup(function(use)
   use "neovim/nvim-lspconfig" -- enable LSP
   use "williamboman/nvim-lsp-installer" -- simple to use language server installer
   use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
-  use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
+  -- 代码格式化
+  use { "jose-elias-alvarez/null-ls.nvim", requires = "nvim-lua/plenary.nvim" } -- for formatters and linters
   use "mhartington/formatter.nvim" -- 代码格式化
   use "filipdutescu/renamer.nvim"
   use "simrat39/symbols-outline.nvim"
   use "ray-x/lsp_signature.nvim"
+  -- JSON 增强
   use "b0o/SchemaStore.nvim"
+  -- Lua 增强
+  -- use "folke/lua-dev.nvim"
+  -- Rust 增强
+  -- use "simrat39/rust-tools.nvim"
   use {
     "folke/trouble.nvim",
     cmd = "TroubleToggle",
@@ -201,6 +207,12 @@ return packer.startup(function(use)
   -- jump不是用lua编写
   -- use "pechorin/any-jump.vim"
   -- use "kwkarlwang/bufjump.nvim"
+
+  -- UI增强
+  use "tami5/lspsaga.nvim"
+  use "onsails/lspkind-nvim"
+  -- TypeScript 增强
+  use { "jose-elias-alvarez/nvim-lsp-ts-utils", requires = "nvim-lua/plenary.nvim" }
 
 
   -- Automatically set up your configuration after cloning packer.nvim

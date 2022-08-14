@@ -84,7 +84,9 @@ keymap(
 )
 keymap("n", "<F7>", "<cmd>TSHighlightCapturesUnderCursor<cr>", opts)
 keymap("n", "<F8>", "<cmd>TSPlaygroundToggle<cr>", opts)
-keymap("n", "<F11>", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
+-- Lspsaga 替换 gr
+-- keymap("n", "<F11>", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
+keymap("n", "<F11>", "<cmd>Lspsaga lsp_finder<CR>", opts)
 keymap("n", "<F12>", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
 keymap("v", "//", [[y/\V<C-R>=escape(@",'/\')<CR><CR>]], opts)
 keymap(
