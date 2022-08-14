@@ -4,6 +4,11 @@ if not ts_utils_status_ok then
   return
 end
 
+local opt = {
+  noremap = true,
+  silent = true,
+}
+
 -- lsp 回调函数快捷键设置
 local mapLSP = function(mapbuf)
   -- rename
