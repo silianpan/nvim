@@ -15,7 +15,8 @@ null_ls.setup {
   sources = {
     formatting.prettier.with {
       extra_filetypes = { "toml", "solidity" },
-      extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" },
+      -- extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" },
+      extra_args = { "--config ~/.prettierrc", "--single-quote" },
     },
     formatting.black.with { extra_args = { "--fast" } },
     formatting.stylua,
