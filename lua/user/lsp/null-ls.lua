@@ -16,7 +16,7 @@ null_ls.setup {
     formatting.prettier.with {
       extra_filetypes = { "toml", "solidity" },
       -- extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" },
-      extra_args = { "--config ~/.prettierrc", "--single-quote" },
+      extra_args = { "--config ~/.prettierrc", "--single-quote", "--vue-indent-script-and-style" },
     },
     formatting.black.with { extra_args = { "--fast" } },
     formatting.stylua,
