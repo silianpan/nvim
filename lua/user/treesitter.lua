@@ -3,6 +3,18 @@ if not status_ok then
 	return
 end
 
+local filetypes = {
+	'html', 'javascript', 'typescript', 'javascriptreact', 'typescriptreact', 'svelte', 'vue', 'tsx', 'jsx', 'rescript',
+	'xml',
+	'php',
+	'markdown',
+	'glimmer','handlebars','hbs'
+}
+local skip_tags = {
+'area', 'base', 'br', 'col', 'command', 'embed', 'hr', 'img', 'slot',
+'input', 'keygen', 'link', 'meta', 'param', 'source', 'track', 'wbr','menuitem'
+}
+
 -- Windows Terminal
 -- require"nvim-treesitter.install".compilers = { "clang" }
 
@@ -47,6 +59,8 @@ configs.setup({
 	autotag = {
 		enable = true,
 		disable = { "xml" },
+		filetypes = filetypes,
+		skip_tags = skip_tags,
 	},
 	rainbow = {
 		enable = true,
