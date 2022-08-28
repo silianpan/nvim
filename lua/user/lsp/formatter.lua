@@ -35,7 +35,7 @@ formatter.setup({
       function()
         return {
           exe = "prettier",
-          args = { "--stdin-filepath", vim.fn.fnameescape(vim.api.nvim_buf_get_name(0)), "--single-quote", "--config", "~/.prettierrc" },
+          args = { "--stdin-filepath", vim.fn.fnameescape(vim.api.nvim_buf_get_name(0)), "--config ~/.prettierrc", "--single-quote", "--vue-indent-script-and-style" },
           stdin = true,
         }
       end,
@@ -45,7 +45,7 @@ formatter.setup({
       function()
         return {
           exe = "prettier",
-          args = { "--stdin-filepath", vim.fn.fnameescape(vim.api.nvim_buf_get_name(0)), "--single-quote", "--config", "~/.prettierrc" },
+          args = { "--stdin-filepath", vim.fn.fnameescape(vim.api.nvim_buf_get_name(0)), "--config ~/.prettierrc", "--single-quote", "--vue-indent-script-and-style" },
           stdin = true,
         }
       end,
@@ -55,7 +55,7 @@ formatter.setup({
       function()
         return {
           exe = "prettier",
-          args = { "--stdin-filepath", vim.fn.fnameescape(vim.api.nvim_buf_get_name(0)), "--single-quote", "--config", "~/.prettierrc" },
+          args = { "--stdin-filepath", vim.fn.fnameescape(vim.api.nvim_buf_get_name(0)), "--config ~/.prettierrc", "--single-quote", "--vue-indent-script-and-style" },
           stdin = true,
         }
       end,
