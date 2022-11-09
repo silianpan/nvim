@@ -52,7 +52,7 @@ local opts = {
 -- print(vim.inspect(server))
 return {
   on_setup = function(server)
-    opts = require("lua-dev").setup({ lspconfig = opts })
+    opts = require("neodev").setup({ lspconfig = opts })
     server:setup(opts)
   end,
 }

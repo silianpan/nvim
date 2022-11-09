@@ -152,7 +152,7 @@ return packer.startup(function(use)
   -- JSON 增强
   use "b0o/SchemaStore.nvim"
   -- Lua 增强
-  use "folke/lua-dev.nvim"
+  use "folke/neodev.nvim"
   -- Rust 增强
   use "simrat39/rust-tools.nvim"
   use {
