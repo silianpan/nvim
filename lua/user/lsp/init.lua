@@ -29,7 +29,7 @@ require "user.lsp.lsp-signature"
 require("user.lsp.mason")
 require("user.lsp.handlers").setup()
 require "user.lsp.null-ls"
--- require "user.lsp.formatter"
+require "user.lsp.formatter"
 require "user.lsp.ui"
 
 local l_status_ok, lsp_lines = pcall(require, "lsp_lines")
