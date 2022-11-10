@@ -5,7 +5,7 @@ end
 
 local setup = {
   plugins = {
-    marks = false, -- shows a list of your marks on ' and `
+    marks = true, -- shows a list of your marks on ' and `
     registers = true, -- shows your registers on " in NORMAL or <C-r> in INSERT mode
     spelling = {
       enabled = true, -- enabling this will show WhichKey when pressing z= to select spelling suggestions
@@ -20,7 +20,7 @@ local setup = {
       windows = true, -- default bindings on <c-w>
       nav = true, -- misc bindings to work with windows
       z = true, -- bindings for folds, spelling and others prefixed with z
-      g = false, -- bindings for prefixed with g
+      g = true, -- bindings for prefixed with g
     },
   },
   -- add operators that will trigger motion and text object completion
@@ -30,6 +30,7 @@ local setup = {
     -- override the label used to display some keys. It doesn't effect WK in any other way.
     -- For example:
     -- ["<space>"] = "SPC",
+    ["<leader>"] = "SPC",
     -- ["<cr>"] = "RET",
     -- ["<tab>"] = "TAB",
   },
@@ -88,34 +89,38 @@ local m_opts = {
 }
 
 local m_mappings = {
-  a = { "<cmd>BookmarkAnnotate<cr>", "Annotate" },
-  c = { "<cmd>BookmarkClear<cr>", "Clear" },
-  m = { "<cmd>BookmarkToggle<cr>", "Toggle" },
-  h = { '<cmd>lua require("harpoon.mark").add_file()<cr>', "Harpoon" },
-  j = { "<cmd>BookmarkNext<cr>", "Next" },
-  k = { "<cmd>BookmarkPrev<cr>", "Prev" },
-  s = {
-    "<cmd>lua require('telescope').extensions.vim_bookmarks.all({ hide_filename=false, prompt_title=\"bookmarks\", shorten_path=false })<cr>",
-    "Show",
-  },
+  a = { "<cmd>silent BookmarkAnnotate<cr>", "Annotate" },
+  c = { "<cmd>silent BookmarkClear<cr>", "Clear" },
+  b = { "<cmd>silent BookmarkToggle<cr>", "Toggle" },
+  m = { '<cmd>lua require("harpoon.mark").add_file()<cr>', "Harpoon" },
+  ["."] = { '<cmd>lua require("harpoon.ui").nav_next()<cr>', "Harpoon Next" },
+  [","] = { '<cmd>lua require("harpoon.ui").nav_prev()<cr>', "Harpoon Prev" },
+  l = { "<cmd>lua require('user.bfs').open()<cr>", "Buffers" },
+  j = { "<cmd>silent BookmarkNext<cr>", "Next" },
+  s = { "<cmd>Telescope harpoon marks<cr>", "Search Files" },
+  k = { "<cmd>silent BookmarkPrev<cr>", "Prev" },
+  S = { "<cmd>silent BookmarkShowAll<cr>", "Prev" },
+  -- s = {
+  --   "<cmd>lua require('telescope').extensions.vim_bookmarks.all({ hide_filename=false, prompt_title=\"bookmarks\", shorten_path=false })<cr>",
+  --   "Show",
+  -- },
   x = { "<cmd>BookmarkClearAll<cr>", "Clear All" },
-  u = { '<cmd>lua require("harpoon.ui").toggle_quick_menu()<cr>', "Harpoon UI" },
+  [";"] = { '<cmd>lua require("harpoon.ui").toggle_quick_menu()<cr>', "Harpoon UI" },
 }
 
 local mappings = {
-  ["a"] = { "<cmd>Alpha<cr>", "Alpha" },
-  -- b = { "<cmd>JABSOpen<cr>", "Buffers" },
-  -- ["b"] = {
-  --   "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
-  --   "Buffers",
-  -- },
-  ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
-  -- ["w"] = { "<cmd>w!<CR>", "Save" },
-  ["h"] = { "<cmd>nohlsearch<CR>", "No HL" },
-  -- ["q"] = { "<cmd>q!<CR>", "Quit" },
-  ["/"] = { '<cmd>lua require("Comment.api").toggle_current_linewise()<CR>', "Comment" },
+  -- ["1"] = "which_key_ignore",
+  a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Action" },
+  b = { "<cmd>Telescope buffers<cr>", "Buffers" },
+  e = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
+  v = { "<cmd>vsplit<cr>", "vsplit" },
+  h = { "<cmd>split<cr>", "split" },
+  w = { "<cmd>w<CR>", "Write" },
+  -- h = { "<cmd>nohlsearch<CR>", "No HL" },
+  q = { '<cmd>lua require("user.functions").smart_quit()<CR>', "Quit" },
+  ["/"] = { '<cmd>lua require("Comment.api").toggle.linewise.current()<CR>', "Comment" },
   -- ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
-  ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
+  c = { "<cmd>Bdelete!<CR>", "Close Buffer" },
 
   -- :lua require'lir.float'.toggle()
   -- ["f"] = {
@@ -123,21 +128,30 @@ local mappings = {
   --   "Find files",
   -- },
   -- ["F"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
-  ["P"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
-  ["R"] = { '<cmd>lua require("renamer").rename()<cr>', "Rename" },
-  ["z"] = { "<cmd>ZenMode<cr>", "Zen" },
+  -- P = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
+  -- ["R"] = { '<cmd>lua require("renamer").rename()<cr>', "Rename" },
+  -- ["z"] = { "<cmd>ZenMode<cr>", "Zen" },
   ["gy"] = "Link",
 
-  b = {
-    name = "Buffers",
-    b = { "<cmd>JABSOpen<cr>", "Buffers" },
-    c = { "<cmd>Bdelete!<cr>", "Close current buffer" },
-    j = { "<cmd>BufferLineGroupClose ungrouped<cr>", "Close ungrouped buffer" },
-    h = { "<cmd>BufferLineCloseLeft<cr>", "Close left tabs" },
-    l = { "<cmd>BufferLineCloseRight<cr>", "Close right tabs" },
-    o = { "<cmd>BufferLineCloseRight<cr><cmd>BufferLineCloseLeft<cr>", "Close other tabs" },
-    p = { "<cmd>BufferLinePickClose<cr>", "Close selected tabs" },
+  B = {
+    name = "Browse",
+    i = { "<cmd>BrowseInputSearch<cr>", "Input Search" },
+    b = { "<cmd>Browse<cr>", "Browse" },
+    d = { "<cmd>BrowseDevdocsSearch<cr>", "Devdocs" },
+    f = { "<cmd>BrowseDevdocsFiletypeSearch<cr>", "Devdocs Filetype" },
+    m = { "<cmd>BrowseMdnSearch<cr>", "Mdn" },
   },
+
+  -- b = {
+  --   name = "Buffers",
+  --   b = { "<cmd>JABSOpen<cr>", "Buffers" },
+  --   c = { "<cmd>Bdelete!<cr>", "Close current buffer" },
+  --   j = { "<cmd>BufferLineGroupClose ungrouped<cr>", "Close ungrouped buffer" },
+  --   h = { "<cmd>BufferLineCloseLeft<cr>", "Close left tabs" },
+  --   l = { "<cmd>BufferLineCloseRight<cr>", "Close right tabs" },
+  --   o = { "<cmd>BufferLineCloseRight<cr><cmd>BufferLineCloseLeft<cr>", "Close other tabs" },
+  --   p = { "<cmd>BufferLinePickClose<cr>", "Close selected tabs" },
+  -- },
 
   p = {
     name = "Packer",
@@ -150,10 +164,33 @@ local mappings = {
 
   o = {
     name = "Options",
+    c = { '<cmd>lua vim.g.cmp_active=false<cr>', "Completion off" },
+    C = { '<cmd>lua vim.g.cmp_active=true<cr>', "Completion on" },
     w = { '<cmd>lua require("user.functions").toggle_option("wrap")<cr>', "Wrap" },
     r = { '<cmd>lua require("user.functions").toggle_option("relativenumber")<cr>', "Relative" },
-    l = { '<cmd>lua require("user.functions").toggle_option("cursorline")<cr>', "Relative" },
-    s = { '<cmd>lua require("user.functions").toggle_option("spell")<cr>', "Relative" },
+    l = { '<cmd>lua require("user.functions").toggle_option("cursorline")<cr>', "Cursorline" },
+    s = { '<cmd>lua require("user.functions").toggle_option("spell")<cr>', "Spell" },
+    t = { '<cmd>lua require("user.functions").toggle_tabline()<cr>', "Tabline" },
+
+  },
+
+  -- s = {
+  --   name = "Split",
+  --   s = { "<cmd>split<cr>", "HSplit" },
+  --   v = { "<cmd>vsplit<cr>", "VSplit" },
+  -- },
+
+  s = {
+    name = "Session",
+    s = { "<cmd>SaveSession<cr>", "Save" },
+    r = { "<cmd>RestoreSession<cr>", "Restore" },
+    x = { "<cmd>DeleteSession<cr>", "Delete" },
+    f = { "<cmd>Autosession search<cr>", "Find" },
+    d = { "<cmd>Autosession delete<cr>", "Find Delete" },
+    -- a = { ":SaveSession<cr>", "test" },
+    -- a = { ":RestoreSession<cr>", "test" },
+    -- a = { ":RestoreSessionFromFile<cr>", "test" },
+    -- a = { ":DeleteSession<cr>", "test" },
   },
 
   r = {
@@ -162,12 +199,6 @@ local mappings = {
     w = { "<cmd>lua require('spectre').open_visual({select_word=true})<cr>", "Replace Word" },
     f = { "<cmd>lua require('spectre').open_file_search()<cr>", "Replace Buffer" },
   },
-
-  -- j = {
-  --   name = "AnyJump",
-  --   a = { "<cmd>AnyJumpBack<cr>", "Any Jump Back" },
-  --   b = { "<cmd>AnyJumpLastResults", "Any Jump Last Results" },
-  -- },
 
   d = {
     name = "Debug",
@@ -192,13 +223,11 @@ local mappings = {
     name = "Find",
     b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
     c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
-    f = {
-      "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
-      "Find files",
-    },
-    t = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
-    -- t = { "<cmd>lua require('telescope.builtin').live_grep()<cr>", "Find Text" },
+    f = { "<cmd>Telescope find_files<cr>", "Find files" },
+    t = { "<cmd>Telescope live_grep<cr>", "Find Text" },
+    s = { "<cmd>Telescope grep_string<cr>", "Find String" },
     h = { "<cmd>Telescope help_tags<cr>", "Help" },
+    H = { "<cmd>Telescope highlights<cr>", "Highlights" },
     i = { "<cmd>lua require('telescope').extensions.media_files.media_files()<cr>", "Media" },
     l = { "<cmd>Telescope resume<cr>", "Last Search" },
     M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
@@ -243,15 +272,17 @@ local mappings = {
   l = {
     name = "LSP",
     a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
+    c = { "<cmd>lua require('user.lsp').server_capabilities()<cr>", "Get Capabilities" },
     d = { "<cmd>TroubleToggle<cr>", "Diagnostics" },
     w = {
       "<cmd>Telescope lsp_workspace_diagnostics<cr>",
       "Workspace Diagnostics",
     },
     f = { "<cmd>lua vim.lsp.buf.format({ async = true })<cr>", "Format" },
-    -- f = { "<cmd>lua vim.lsp.buf.formatting_seq_sync()<cr>", "Format" },
     F = { "<cmd>LspToggleAutoFormat<cr>", "Toggle Autoformat" },
     i = { "<cmd>LspInfo<cr>", "Info" },
+    h = { "<cmd>lua require('lsp-inlayhints').toggle()<cr>", "Toggle Hints" },
+    H = { "<cmd>IlluminationToggle<cr>", "Toggle Doc HL" },
     I = { "<cmd>LspInstallInfo<cr>", "Installer Info" },
     j = {
       "<cmd>lua vim.diagnostic.goto_next({buffer=0})<CR>",
@@ -261,6 +292,7 @@ local mappings = {
       "<cmd>lua vim.diagnostic.goto_prev({buffer=0})<cr>",
       "Prev Diagnostic",
     },
+    v = { "<cmd>lua require('lsp_lines').toggle()<cr>", "Virtual Text" },
     l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
     o = { "<cmd>SymbolsOutline<cr>", "Outline" },
     q = { "<cmd>lua vim.lsp.diagnostic.set_loclist()<cr>", "Quickfix" },
@@ -271,17 +303,19 @@ local mappings = {
       "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
       "Workspace Symbols",
     },
+    t = { '<cmd>lua require("user.functions").toggle_diagnostics()<cr>', "Toggle Diagnostics" },
+    u = { "<cmd>LuaSnipUnlinkCurrent<cr>", "Unlink Snippet" },
   },
 
-  s = {
-    name = "Surround",
-    ["."] = { "<cmd>lua require('surround').repeat_last()<cr>", "Repeat" },
-    a = { "<cmd>lua require('surround').surround_add(true)<cr>", "Add" },
-    d = { "<cmd>lua require('surround').surround_delete()<cr>", "Delete" },
-    r = { "<cmd>lua require('surround').surround_replace()<cr>", "Replace" },
-    q = { "<cmd>lua require('surround').toggle_quotes()<cr>", "Quotes" },
-    b = { "<cmd>lua require('surround').toggle_brackets()<cr>", "Brackets" },
-  },
+  -- s = {
+  --   name = "Surround",
+  --   ["."] = { "<cmd>lua require('surround').repeat_last()<cr>", "Repeat" },
+  --   a = { "<cmd>lua require('surround').surround_add(true)<cr>", "Add" },
+  --   d = { "<cmd>lua require('surround').surround_delete()<cr>", "Delete" },
+  --   r = { "<cmd>lua require('surround').surround_replace()<cr>", "Replace" },
+  --   q = { "<cmd>lua require('surround').toggle_quotes()<cr>", "Quotes" },
+  --   b = { "<cmd>lua require('surround').toggle_brackets()<cr>", "Brackets" },
+  -- },
 
   S = {
     -- name = "Session",
@@ -318,7 +352,16 @@ local mappings = {
     name = "Treesitter",
     h = { "<cmd>TSHighlightCapturesUnderCursor<cr>", "Highlight" },
     p = { "<cmd>TSPlaygroundToggle<cr>", "Playground" },
+    r = { "<cmd>TSToggle rainbow<cr>", "Rainbow" },
   },
+
+  -- z = {
+  --   name = "Zen",
+  --   z = { "<cmd>TZAtaraxis<cr>", "Zen" },
+  --   m = { "<cmd>TZMinimalist<cr>", "Minimal" },
+  --   n = { "<cmd>TZNarrow<cr>", "Narrow" },
+  --   f = { "<cmd>TZFocus<cr>", "Focus" },
+  -- },
 }
 
 local vopts = {
@@ -330,8 +373,9 @@ local vopts = {
   nowait = true, -- use `nowait` when creating keymaps
 }
 local vmappings = {
-  ["/"] = { '<ESC><CMD>lua require("Comment.api").toggle_linewise_op(vim.fn.visualmode())<CR>', "Comment" },
+  ["/"] = { '<ESC><CMD>lua require("Comment.api").toggle.linewise(vim.fn.visualmode())<CR>', "Comment" },
   s = { "<esc><cmd>'<,'>SnipRun<cr>", "Run range" },
+  -- z = { "<cmd>TZNarrow<cr>", "Narrow" },
 }
 
 which_key.setup(setup)

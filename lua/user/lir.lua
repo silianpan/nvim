@@ -11,6 +11,7 @@ lir.setup {
   show_hidden_files = false,
   devicons_enable = true,
   mappings = {
+    ["<cr>"] = actions.edit,
     ["l"] = actions.edit,
     ["<C-s>"] = actions.split,
     ["v"] = actions.vsplit,
@@ -77,7 +78,8 @@ require("nvim-web-devicons").set_icon {
   lir_folder_icon = {
     icon = "",
     -- color = "#7ebae4",
-    color = "#569CD6",
+    -- color = "#569CD6",
+    color = "#42A5F5",
     name = "LirFolderNode",
   },
 }
