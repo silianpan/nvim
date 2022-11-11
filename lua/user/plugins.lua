@@ -213,6 +213,7 @@ return packer.startup(function(use)
   -- Session
   use "rmagatti/auto-session"
   use "rmagatti/session-lens"
+  use "zwhitchcox/auto-session-nvim-tree"
 
   -- Quickfix
   use "kevinhwang91/nvim-bqf"

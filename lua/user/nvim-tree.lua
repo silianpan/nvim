@@ -29,6 +29,12 @@ end
 -- utils.notify.debug = notify_level(vim.log.levels.DEBUG)
 
 nvim_tree.setup {
+  sync_root_with_cwd = true,
+  actions = {
+    change_dir = {
+      global = true
+    },
+  },
   hijack_directories = {
     enable = true,
     auto_open = true,

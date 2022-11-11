@@ -13,8 +13,21 @@ if not l_status_ok then
   return
 end
 
+local nt_status_ok, auto_session_nvim_tree = pcall(require, "auto-session-nvim-tree")
+if not nt_status_ok then
+  return
+end
+
+local function close_nvim_tree()
+  require('nvim-tree.view').close()
+end
+
+local function open_nvim_tree()
+  require('nvim-tree').open()
+end
+
 local opts = {
-  log_level = "info",
+  log_level = "error",
   auto_session_enable_last_session = false,
   auto_session_root_dir = vim.fn.stdpath "data" .. "/sessions/",
   auto_session_enabled = true,
@@ -28,6 +41,14 @@ local opts = {
   auto_session_use_git_branch = nil,
   -- the configs below are lua only
   bypass_session_save_file_types = { "alpha" },
+  -- 2022-11-11新增
+  pre_save_cmds = {close_nvim_tree},
+  post_save_cmds = {open_nvim_tree},
+  post_open_cmds = {open_nvim_tree},
+  post_restore_cmds = {open_nvim_tree},
+  cwd_change_handling = {
+    restore_upcoming_session = true, -- <-- THE DOCS LIE!! This is necessary!!
+  },
 }
 
 vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal"
@@ -42,3 +63,5 @@ session_lens.setup {
 }
 
 auto_session.setup(opts)
+
+auto_session_nvim_tree.setup(auto_session)
