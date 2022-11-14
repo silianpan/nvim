@@ -111,7 +111,7 @@ local m_mappings = {
 local mappings = {
   -- ["1"] = "which_key_ignore",
   a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Action" },
-  b = { "<cmd>Telescope buffers<cr>", "Buffers" },
+  -- b = { "<cmd>Telescope buffers<cr>", "Buffers" },
   e = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
   v = { "<cmd>vsplit<cr>", "vsplit" },
   h = { "<cmd>split<cr>", "split" },
@@ -142,16 +142,16 @@ local mappings = {
     m = { "<cmd>BrowseMdnSearch<cr>", "Mdn" },
   },
 
-  -- b = {
-  --   name = "Buffers",
-  --   b = { "<cmd>JABSOpen<cr>", "Buffers" },
-  --   c = { "<cmd>Bdelete!<cr>", "Close current buffer" },
-  --   j = { "<cmd>BufferLineGroupClose ungrouped<cr>", "Close ungrouped buffer" },
-  --   h = { "<cmd>BufferLineCloseLeft<cr>", "Close left tabs" },
-  --   l = { "<cmd>BufferLineCloseRight<cr>", "Close right tabs" },
-  --   o = { "<cmd>BufferLineCloseRight<cr><cmd>BufferLineCloseLeft<cr>", "Close other tabs" },
-  --   p = { "<cmd>BufferLinePickClose<cr>", "Close selected tabs" },
-  -- },
+  b = {
+    name = "Buffers",
+    b = { "<cmd>JABSOpen<cr>", "Buffers" },
+    c = { "<cmd>Bdelete!<cr>", "Close current buffer" },
+    j = { "<cmd>BufferLineGroupClose ungrouped<cr>", "Close ungrouped buffer" },
+    h = { "<cmd>BufferLineCloseLeft<cr>", "Close left tabs" },
+    l = { "<cmd>BufferLineCloseRight<cr>", "Close right tabs" },
+    o = { "<cmd>BufferLineCloseRight<cr><cmd>BufferLineCloseLeft<cr>", "Close other tabs" },
+    p = { "<cmd>BufferLinePickClose<cr>", "Close selected tabs" },
+  },
 
   p = {
     name = "Packer",

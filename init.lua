@@ -64,3 +64,6 @@ require "user.surround"
 require "user.harpoon"
 require "user.lab"
 require "user.vim-slash"
+
+require "user.scope"
+require "user.bufferline"
