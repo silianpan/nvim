@@ -30,7 +30,7 @@ local servers = {
   "zk@v0.10.1",
   "lemminx",
   "volar",
-  "dartls",
+  -- "dartls",
 }
 
 local settings = {
