@@ -30,6 +30,7 @@ local servers = {
   "zk@v0.10.1",
   "lemminx",
   "volar",
+  "dartls",
 }
 
 local settings = {
@@ -120,6 +121,11 @@ for _, server in pairs(servers) do
   if server == "zk" then
     local zk_opts = require "user.lsp.settings.zk"
     opts = vim.tbl_deep_extend("force", zk_opts, opts)
+  end
+
+  if server == "dartls" then
+    local dartls_opts = require "user.lsp.settings.dartls"
+    opts = vim.tbl_deep_extend("force", dartls_opts, opts)
   end
 
   if server == "jdtls" then
