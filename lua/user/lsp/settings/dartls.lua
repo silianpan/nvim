@@ -1,6 +1,7 @@
 local util = require "lspconfig.util"
 
 return {
+  cmd = { "dart", "language-server", "--protocol=lsp" },
   filetypes = { "dart" },
   init_options = {
     closingLabels = true,
