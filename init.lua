@@ -67,3 +67,5 @@ require "user.vim-slash"
 
 require "user.scope"
 require "user.bufferline"
+
+require "user.flutter-tools"
