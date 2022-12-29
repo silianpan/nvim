@@ -23,6 +23,8 @@ local skip_tags = {
 
 configs.setup {
   ensure_installed = "all", -- one of "all" or a list of languages
+  -- Windows Terminal
+	-- ensure_installed = { "bash", "c", "cpp", "cmake", "lua", "dart", "css", "go", "json", "html", "http", "java", "javascript", "json5", "julia", "kotlin", "make", "markdown", "vim", "vue", "yaml", "python", "scss", "tsx", "typescript", "php" }, -- one of "all" or a list of languages
   sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
   ignore_install = { "" }, -- List of parsers to ignore installing
   matchup = {
