@@ -1,5 +1,5 @@
 return {
-  cmd = { "py" },
+  cmd = { "pyright-langserver", "--stdio" },
   settings = {
     python = {
       analysis = {
