@@ -30,6 +30,7 @@ local servers = {
   "zk@v0.10.1",
   "lemminx",
   "volar",
+  "quick_lint_js",
   -- "dartls",
 }
 
@@ -126,6 +127,11 @@ for _, server in pairs(servers) do
   if server == "dartls" then
     local dartls_opts = require "user.lsp.settings.dartls"
     opts = vim.tbl_deep_extend("force", dartls_opts, opts)
+  end
+
+  if server == "quick_lint_js" then
+    local quick_lint_js_opts = require "user.lsp.settings.quick_lint_js"
+    opts = vim.tbl_deep_extend("force", quick_lint_js_opts, opts)
   end
 
   if server == "jdtls" then
