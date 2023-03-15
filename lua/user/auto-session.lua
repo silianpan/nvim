@@ -19,11 +19,13 @@ if not nt_status_ok then
 end
 
 local function close_nvim_tree()
-  require('nvim-tree.view').close()
+  require("nvim-tree.view").close()
 end
 
 local function open_nvim_tree()
-  require('nvim-tree').open()
+  -- 过时
+  -- require('nvim-tree').open()
+  require("nvim-tree.api").tree.open()
 end
 
 local opts = {
@@ -42,10 +44,10 @@ local opts = {
   -- the configs below are lua only
   bypass_session_save_file_types = { "alpha" },
   -- 2022-11-11新增
-  pre_save_cmds = {close_nvim_tree},
-  post_save_cmds = {open_nvim_tree},
-  post_open_cmds = {open_nvim_tree},
-  post_restore_cmds = {open_nvim_tree},
+  pre_save_cmds = { close_nvim_tree },
+  post_save_cmds = { open_nvim_tree },
+  post_open_cmds = { open_nvim_tree },
+  post_restore_cmds = { open_nvim_tree },
   cwd_change_handling = {
     restore_upcoming_session = true, -- <-- THE DOCS LIE!! This is necessary!!
   },
@@ -64,4 +66,5 @@ session_lens.setup {
 
 auto_session.setup(opts)
 
-auto_session_nvim_tree.setup(auto_session)
+-- 过时
+-- auto_session_nvim_tree.setup(auto_session)

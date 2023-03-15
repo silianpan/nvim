@@ -32,7 +32,7 @@ nvim_tree.setup {
   sync_root_with_cwd = true,
   actions = {
     change_dir = {
-      global = true
+      global = true,
     },
   },
   hijack_directories = {
@@ -44,8 +44,9 @@ nvim_tree.setup {
   -- },
   -- disable_netrw = true,
   -- hijack_netrw = true,
-  open_on_setup = true,
-  open_on_setup_file = true,
+  -- 过时
+  -- open_on_setup = true,
+  -- open_on_setup_file = true,
   ignore_ft_on_setup = {
     "startify",
     "dashboard",
