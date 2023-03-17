@@ -69,4 +69,5 @@ require "user.scope"
 require "user.bufferline"
 
 require "user.flutter-tools"
-require "user.leap"
+-- 已经自带leap的功能
+-- require "user.leap"
