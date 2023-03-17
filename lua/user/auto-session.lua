@@ -19,7 +19,9 @@ if not nt_status_ok then
 end
 
 local function close_nvim_tree()
-  require("nvim-tree.view").close()
+  -- 过时
+  -- require("nvim-tree.view").close()
+  require("nvim-tree.api").tree.close()
 end
 
 local function open_nvim_tree()
@@ -66,5 +68,4 @@ session_lens.setup {
 
 auto_session.setup(opts)
 
--- 过时
--- auto_session_nvim_tree.setup(auto_session)
+auto_session_nvim_tree.setup(auto_session)
