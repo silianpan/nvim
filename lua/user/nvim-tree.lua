@@ -11,4 +11,32 @@ vim.g.loaded_netrwPlugin = 1
 vim.opt.termguicolors = true
 
 -- empty setup using defaults
-nvim_tree.setup()
+nvim_tree.setup({
+  sync_root_with_cwd = true,
+  actions = {
+    change_dir = {
+      global = true,
+    },
+  },
+  ignore_ft_on_setup = {
+    "startify",
+    "dashboard",
+    "alpha",
+  },
+  filters = {
+    custom = { ".git" },
+    exclude = { ".gitignore" },
+  },
+  tab = {
+    sync = {
+      open = true,
+    },
+  },
+  diagnostics = {
+    enable = true,
+  },
+  update_focused_file = {
+    enable = true,
+    update_root = true,
+  },
+})
