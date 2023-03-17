@@ -69,3 +69,4 @@ require "user.scope"
 require "user.bufferline"
 
 require "user.flutter-tools"
+require "user.leap"

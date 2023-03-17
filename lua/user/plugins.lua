@@ -54,6 +54,8 @@ return packer.startup(function(use)
   use "christianchiarulli/lua-dev.nvim"
   -- use "folke/lua-dev.nvim"
 
+  use "ggandor/leap.nvim"
+
   -- LSP
   use "neovim/nvim-lspconfig" -- enable LSP
   -- use "williamboman/nvim-lsp-installer" -- simple to use language server installer
