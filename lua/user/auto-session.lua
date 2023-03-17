@@ -68,4 +68,5 @@ session_lens.setup {
 
 auto_session.setup(opts)
 
-auto_session_nvim_tree.setup(auto_session)
+-- 加上会报错
+-- auto_session_nvim_tree.setup(auto_session)

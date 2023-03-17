@@ -37,6 +37,7 @@ nvim_tree.setup({
   },
   update_focused_file = {
     enable = true,
-    update_root = true,
+    -- true，开启终端会报错
+    update_root = false,
   },
 })
