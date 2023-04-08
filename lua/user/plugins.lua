@@ -185,7 +185,8 @@ return packer.startup(function(use)
   -- use "Pocco81/DAPInstall.nvim"
 
   -- Tabline
-  use "akinsho/bufferline.nvim"
+  -- use "akinsho/bufferline.nvim"
+  use {'akinsho/bufferline.nvim', tag = "v3.*", requires = 'nvim-tree/nvim-web-devicons'}
   use "tiagovla/scope.nvim"
 
   -- Statusline
