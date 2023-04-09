@@ -75,12 +75,19 @@ formatter.setup({
 })
 
 -- format on save
-vim.api.nvim_exec(
-  [[
-augroup FormatAutogroup
-  autocmd!
-  autocmd BufWritePost *.js,*.rs,*.lua,*.java FormatWrite
-augroup END
-]],
-  true
-)
+-- vim.api.nvim_exec(
+--   [[
+-- augroup FormatAutogroup
+--   autocmd!
+--   autocmd BufWritePost *.js,*.rs,*.lua,*.java FormatWrite
+-- augroup END
+-- ]],
+--   true
+-- )
+vim.cmd [[
+  augroup format_on_save
+    autocmd! 
+    autocmd BufWritePre * lua vim.lsp.buf.format({ async = false }) 
+  augroup end
+]]
+vim.notify "Enabled format on save"
