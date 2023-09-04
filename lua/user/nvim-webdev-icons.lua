@@ -4,6 +4,18 @@ if not status_ok then
 end
 
 nvim_web_devicons.set_icon {
+  zsh = {
+    icon = "",
+    color = "#428850",
+    cterm_color = "65",
+    name = "Zsh"
+  },
+  ["vue"] = {
+    icon = "",
+    color = "#8dc149",
+    cterm_color = "113",
+    name = "Vue",
+  },
   sh = {
     icon = "",
     color = "#1DC123",
