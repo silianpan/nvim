@@ -135,7 +135,11 @@ return packer.startup(function(use)
   use "p00f/nvim-ts-rainbow"
   use "nvim-treesitter/playground"
   use "windwp/nvim-ts-autotag"
-  use "nvim-treesitter/nvim-treesitter-textobjects"
+  use {
+    "nvim-treesitter/nvim-treesitter-textobjects",
+    after = "nvim-treesitter",
+    requires = "nvim-treesitter/nvim-treesitter",
+  }
   -- use "wellle/targets.vim"
   -- use "RRethy/nvim-treesitter-textsubjects"
   use "kylechui/nvim-surround"
