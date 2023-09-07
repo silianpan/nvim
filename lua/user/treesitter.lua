@@ -66,20 +66,29 @@ configs.setup {
   },
   rainbow = {
     enable = true,
-    extended_mode = false,
-    colors = {
-      -- "#68a0b0",
-      -- "#946EaD",
-      -- "#c7aA6D",
-      "Gold",
-      "Orchid",
-      "DodgerBlue",
-      -- "Cornsilk",
-      -- "Salmon",
-      -- "LawnGreen",
-    },
-    disable = { "html" },
+    -- list of languages you want to disable the plugin for
+    disable = { 'jsx', 'cpp' },
+    -- Which query to use for finding delimiters
+    query = 'rainbow-parens',
+    -- Highlight the entire buffer all at once
+    strategy = require('ts-rainbow').strategy.global,
   },
+  -- rainbow = {
+  --   enable = true,
+  --   extended_mode = false,
+  --   colors = {
+  --     -- "#68a0b0",
+  --     -- "#946EaD",
+  --     -- "#c7aA6D",
+  --     "Gold",
+  --     "Orchid",
+  --     "DodgerBlue",
+  --     -- "Cornsilk",
+  --     -- "Salmon",
+  --     -- "LawnGreen",
+  --   },
+  --   disable = { "html" },
+  -- },
   playground = {
     enable = true,
   },

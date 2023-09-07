@@ -132,7 +132,8 @@ return packer.startup(function(use)
   -- Syntax/Treesitter
   use "nvim-treesitter/nvim-treesitter"
   use "JoosepAlviste/nvim-ts-context-commentstring"
-  use "p00f/nvim-ts-rainbow"
+  -- use "p00f/nvim-ts-rainbow"
+  use "HiPhish/nvim-ts-rainbow2"
   use "nvim-treesitter/playground"
   use "windwp/nvim-ts-autotag"
   use {
