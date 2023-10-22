@@ -54,7 +54,7 @@ return packer.startup(function(use)
   use "christianchiarulli/lua-dev.nvim"
   -- use "folke/lua-dev.nvim"
 
-  use "ggandor/leap.nvim"
+  -- use "ggandor/leap.nvim"
   use {
     "folke/flash.nvim",
     event = "VeryLazy",
