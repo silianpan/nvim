@@ -18,11 +18,11 @@ nvim_tree.setup({
       global = true,
     },
   },
-  ignore_ft_on_setup = {
-    "startify",
-    "dashboard",
-    "alpha",
-  },
+  -- ignore_ft_on_setup = {
+  --   "startify",
+  --   "dashboard",
+  --   "alpha",
+  -- },
   filters = {
     custom = { ".git" },
     exclude = { ".gitignore" },
