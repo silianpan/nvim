@@ -71,4 +71,4 @@ require "user.bufferline"
 require "user.flutter-tools"
 -- 已经自带leap的功能
 -- require "user.leap"
-require "user.flash"
+-- require "user.flash"

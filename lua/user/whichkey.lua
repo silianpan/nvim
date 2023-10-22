@@ -362,6 +362,14 @@ local mappings = {
   --   n = { "<cmd>TZNarrow<cr>", "Narrow" },
   --   f = { "<cmd>TZFocus<cr>", "Focus" },
   -- },
+
+  F = {
+    s = { "<cmd>lua require('flash').jump()<cr>", "Flash" },
+    S = { "<cmd>lua require('flash').treesitter()<cr>", "Flash Treesitter" },
+    r = { "<cmd>lua require('flash').remote()<cr>", "Remote Flash" },
+    R = { "<cmd>lua require('flash').treesitter_search()<cr>", "Treesitter Search" },
+    f = { "<cmd>lua require('flash').toggle()<cr>", "Toggle Flash Search" },
+  }
 }
 
 local vopts = {
