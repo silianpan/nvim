@@ -3,6 +3,15 @@ if not status_ok then
   return
 end
 
+local status_ts_context_commentstring_ok, ts_context_commentstring = pcall(require, "nvim-ts-context-commentstring")
+if not status_ts_context_commentstring_ok then
+  return
+end
+
+ts_context_commentstring.setup {
+  enable_autocmd = false,
+}
+
 local filetypes = {
 	'html', 'javascript', 'typescript', 'javascriptreact', 'typescriptreact', 'svelte', 'vue', 'tsx', 'jsx', 'rescript',
 	'xml',
@@ -56,10 +65,10 @@ configs.setup {
   },
 	-- 启用代码缩进模块 (=)
   indent = { enable = true, disable = { "python", "css", "rust" } },
-  context_commentstring = {
-    enable = true,
-    enable_autocmd = false,
-  },
+  -- context_commentstring = {
+  --   enable = true,
+  --   enable_autocmd = false,
+  -- },
   autotag = {
     enable = true,
     disable = { "xml", "markdown" },
