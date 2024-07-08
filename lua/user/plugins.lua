@@ -365,7 +365,14 @@ return packer.startup(function(use)
   -- 代码格式化
   use "mhartington/formatter.nvim" -- 代码格式化
   -- UI增强
-  use "tami5/lspsaga.nvim"
+  -- use "tami5/lspsaga.nvim"
+  use {
+    'nvimdev/lspsaga.nvim',
+    after = 'nvim-lspconfig',
+    -- config = function()
+    --     require('lspsaga').setup({})
+    -- end,
+  }
   use "onsails/lspkind-nvim"
   -- TypeScript 增强
   use { "jose-elias-alvarez/nvim-lsp-ts-utils", requires = "nvim-lua/plenary.nvim" }
