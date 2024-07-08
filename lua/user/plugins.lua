@@ -214,7 +214,7 @@ return packer.startup(function(use)
 
   -- Tabline
   -- use "akinsho/bufferline.nvim"
-  use {'akinsho/bufferline.nvim', tag = "v3.*", requires = 'nvim-tree/nvim-web-devicons'}
+  use {'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons'}
   use "tiagovla/scope.nvim"
 
   -- Statusline

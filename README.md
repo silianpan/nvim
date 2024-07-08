@@ -56,6 +56,12 @@ Next we need to install python support (node is optional)
 
   ```sh
   npm i -g neovim
+  npm i -g ls_emmet
+  npm i -g prettier
+  
+  brew install stylua
+  brew install shfmt
+  brew install ripgrep
   ```
 
 ## Fonts
