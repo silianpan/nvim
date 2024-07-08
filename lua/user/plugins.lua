@@ -142,7 +142,11 @@ return packer.startup(function(use)
   }
 
   -- Snippet
-  use "L3MON4D3/LuaSnip" --snippet engine
+  use {
+    "L3MON4D3/LuaSnip", --snippet engine
+    tag = "v2.*",
+    run = "make install_jsregexp"
+  }
   use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
 
   -- Syntax/Treesitter
