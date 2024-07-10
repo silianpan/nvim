@@ -368,7 +368,7 @@ return packer.startup(function(use)
   -- use "tami5/lspsaga.nvim"
   use {
     'nvimdev/lspsaga.nvim',
-    after = 'nvim-lspconfig',
+    after = 'neovim/nvim-lspconfig',
     -- config = function()
     --     require('lspsaga').setup({})
     -- end,
